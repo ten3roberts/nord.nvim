@@ -197,12 +197,17 @@ theme.loadEditor = function()
 		editor.SignColumn = { fg = nord.nord4_gui, bg = nord.nord0_gui }
 	end
 
+	local splitColor
+
 	-- Remove window split borders
 	if vim.g.nord_borders then
-		editor.VertSplit = { fg = nord.nord2_gui }
+		splitColor = { fg = nord.nord2_gui }
 	else
-		editor.VertSplit = { fg = nord.nord0_gui }
+		splitColor = { fg = nord.nord0_gui }
 	end
+
+	editor.VertSplit = splitColor
+	editor.WinSeparator = splitColor
 
 	if vim.g.nord_uniform_diff_background then
 		editor.DiffAdd = { fg = nord.nord14_gui, bg = nord.nord1_gui } -- diff mode: Added line
